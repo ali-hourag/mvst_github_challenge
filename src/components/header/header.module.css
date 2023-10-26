@@ -35,9 +35,14 @@
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     cursor: pointer;
+    transition: background-color .3s ease;
+    -webkit-transition: background-color .3s ease;
+    -moz-transition: background-color .3s ease;
+    -ms-transition: background-color .3s ease;
+    -o-transition: background-color .3s ease;
 }
 
 .repoLabelText:hover {
-    background-color: rgb(192, 192, 192, .4);
+    background-color: rgb(220, 220, 245, .7);
     color: #1f1f1f;
 }

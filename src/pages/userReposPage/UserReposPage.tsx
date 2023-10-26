@@ -39,7 +39,7 @@ const UserReposPage = () => {
                 :
                 <>
                     <div className={styles.profileContainer}>
-                        <ProfileContainer />
+                        <ProfileContainer userInfo={userData} />
                     </div>
                     <div className={styles.reposInfoContainer}>
                         <ReposContainer numberOfRepos={userData.repositories.totalCount} />
