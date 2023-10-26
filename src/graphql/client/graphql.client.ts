@@ -22,9 +22,9 @@ const authLink = setContext((_, { headers }) => {
 })
 
 // Create a new
-const GithubGraphqlApolloClient = new ApolloClient({
+const GraphqlApolloClient = new ApolloClient({
     cache: new InMemoryCache(),
     link: authLink.concat(httpLink)
 })
 
-export default GithubGraphqlApolloClient;
+export default GraphqlApolloClient;
