@@ -21,7 +21,7 @@ const authLink = setContext((_, { headers }) => {
     }
 })
 
-// Create a new
+// Create a new ApolloClient to manage API data with GraphQL
 const GraphqlApolloClient = new ApolloClient({
     connectToDevTools: true,
     cache: new InMemoryCache(),
