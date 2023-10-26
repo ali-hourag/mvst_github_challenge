@@ -23,6 +23,7 @@ const authLink = setContext((_, { headers }) => {
 
 // Create a new
 const GraphqlApolloClient = new ApolloClient({
+    connectToDevTools: true,
     cache: new InMemoryCache(),
     link: authLink.concat(httpLink)
 })
