@@ -38,12 +38,12 @@ const UserReposPage = () => {
                 <ClipLoader />
                 :
                 <>
-                    <div className={styles.profileContainer}>
+                    <section className={styles.profileContainer}>
                         <ProfileContainer userInfo={userData} />
-                    </div>
-                    <div className={styles.reposInfoContainer}>
+                    </section>
+                    <section className={styles.reposInfoContainer}>
                         <ReposContainer numberOfRepos={userData.repositories.totalCount} />
-                    </div>
+                    </section>
                 </>
             }
         </main>
