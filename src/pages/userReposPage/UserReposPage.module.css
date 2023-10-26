@@ -1,3 +1,11 @@
 .container {
     color: red;
 }
+
+.profileContainer {
+    color: yellow;
+}
+
+.reposInfoContainer {
+    color: blue;
+}

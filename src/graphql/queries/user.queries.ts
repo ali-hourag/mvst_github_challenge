@@ -6,7 +6,6 @@ const USER_DATA = gql`
             name
             login
             avatarUrl
-            bio
             followers {
               totalCount
             }
