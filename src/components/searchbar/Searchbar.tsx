@@ -1,8 +1,10 @@
-
+import styles from "./searchbar.module.css";
 
 const Searchbar = () => {
     return (
-        <div>Searchbar</div>
+        <div className={styles.coontainer}>
+
+        </div>
     )
 }
 

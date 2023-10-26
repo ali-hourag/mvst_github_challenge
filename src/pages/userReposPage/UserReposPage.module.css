@@ -7,12 +7,10 @@
 
 .profileContainer {
     width: 25%;
-    background-color: yellow;
 }
 
 .reposInfoContainer {
     width: 75%;
-    background-color: blue;
 }
 
 @media only screen and (max-width: 1100px) {
@@ -23,12 +21,10 @@
     .profileContainer {
         height: 25%;
         width: 100vw;
-        background-color: yellow;
     }
 
     .reposInfoContainer {
         height: 75%;
         width: 100vw;
-        background-color: blue;
     }
 }
