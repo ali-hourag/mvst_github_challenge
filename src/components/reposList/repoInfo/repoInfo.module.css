@@ -47,6 +47,7 @@
     -o-border-radius: 10px;
 }
 
+/*Add responsiveness to the component.*/
 @media only screen and (max-width: 1050px) {
     .container {
         justify-content: center;

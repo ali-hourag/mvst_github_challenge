@@ -15,16 +15,21 @@ const ReposList = ({ userReposData, username }: ReposListPropTypes) => {
     const [reposFiltered, setReposFiltered] = useState<UserDataReposTypes[] | null>(null);
     const { searchInputValue, languageOptionValue, privacyOptionValue, sortOptionValue } = useFilterContext();
 
-    // Apply change in context of filters
+    // Filter reposFiltered states by seachInput and elements selected.
+    // It is called when first rendered or when any filterContext variable
+    // is altered
     useEffect(() => {
         let repositories = userReposData;
+        // searchInput filter
         if (searchInputValue) {
             repositories = repositories.filter(repo => repo.name.toLowerCase().includes(searchInputValue.toLowerCase()));
         }
+        // privacy select element filter
         if (privacyOptionValue) {
             if (privacyOptionValue === "public") repositories = repositories.filter((repo) => !repo.isPrivate)
             else repositories = repositories.filter((repo) => repo.isPrivate)
         }
+        // language select element filter
         if (languageOptionValue) {
             repositories = repositories.filter(repo => {
                 let coincides = false;
@@ -35,6 +40,7 @@ const ReposList = ({ userReposData, username }: ReposListPropTypes) => {
                 return coincides
             })
         }
+        // sort by select element filter
         if (sortOptionValue) {
 
             if (sortOptionValue == "lastUpdated") {

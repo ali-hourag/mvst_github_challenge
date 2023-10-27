@@ -20,6 +20,7 @@ const UserReposPage = () => {
     const username = "ali-hourag"
 
     useEffect(() => {
+        // Get data from query with login_username variable
         getUserData({
             variables: {
                 login_username: username
@@ -28,6 +29,8 @@ const UserReposPage = () => {
     }, [])
 
     useEffect(() => {
+        // If result.data exists and has been changed,
+        // then update useState variable
         if (result && result.data) {
             setUserData(result.data.user)
         }
@@ -35,6 +38,8 @@ const UserReposPage = () => {
 
     return (
         <main className={styles.container}>
+            // Show loader if data is not yet available
+            // Otherwise, show children nodes
             {!userData ?
                 <ClipLoader />
                 :

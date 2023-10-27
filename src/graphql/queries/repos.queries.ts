@@ -1,5 +1,8 @@
 import { gql } from '@apollo/client';
 
+/**
+ * Query that returns repositories information of a user
+ */
 const USER_REPOS_DATA = gql`
     query GetUserReposData($login_username: String!, $num_of_repos: Int!) {
         user (login: $login_username){

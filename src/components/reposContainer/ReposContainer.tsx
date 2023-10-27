@@ -12,11 +12,14 @@ type ReposContainerPropTypes = {
 }
 
 const ReposContainer = ({ numberOfRepos, username }: ReposContainerPropTypes) => {
+    // Make lazyQuery when needed as previously explained
     const [getUserReposData, result] = useLazyQuery(USER_REPOS_DATA);
     const [userReposData, setUserReposData] = useState<UserDataReposTypes[] | null>(null);
     const [languages, setLanguages] = useState<string[] | null>(null);
 
     useEffect(() => {
+        // Call query with variables for username and the number of repos
+        // of that username that we want
         getUserReposData({
             variables: {
                 login_username: username,
@@ -27,6 +30,8 @@ const ReposContainer = ({ numberOfRepos, username }: ReposContainerPropTypes) =>
 
     useEffect(() => {
         if (result && result.data) {
+            // if result does exit, update statte and get all languages used
+            // in our ptojects.
             const languages: string[] = [];
             const repositories: UserDataReposTypes[] = result.data.user.repositories.nodes
             setUserReposData(repositories)

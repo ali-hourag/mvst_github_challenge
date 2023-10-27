@@ -1,3 +1,9 @@
+/**
+ * 
+ * @param date1 format: "2023-10-27"
+ * @param date2 format: "2023-10-27"
+ * @returns boolean date1 > date2 ? true : false
+ */
 export function checkLastDate(date1: string, date2: string): boolean {
 
     let arrayDate1: string[] = date1.split("-");

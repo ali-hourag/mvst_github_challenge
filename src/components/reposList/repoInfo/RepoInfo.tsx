@@ -2,15 +2,18 @@ import { useEffect, useState } from "react";
 import { UserDataReposTypes } from "../../../types/userReposData";
 import styles from "./repoInfo.module.css";
 
+// PropTypes
 type RepoInfoPropType = {
     repository: UserDataReposTypes
 }
+// programming language types
 type LanguageType = {
     color: string,
     name: string
 }
 
 const RepoInfo = ({ repository }: RepoInfoPropType) => {
+    // Get variables from repository
     const { name, description, isPrivate, updatedAt, languages } = repository
     const [date, setDate] = useState<Date | null>(null);
     const [language, setLanguage] = useState<LanguageType | null>(null);
@@ -18,6 +21,7 @@ const RepoInfo = ({ repository }: RepoInfoPropType) => {
     useEffect(() => {
         const repoDateCreation = new Date(updatedAt);
         setDate(repoDateCreation)
+        // Set principal languages
         if (languages.nodes.length > 0) {
             setLanguage({
                 color: languages.nodes[0].color,
@@ -27,6 +31,7 @@ const RepoInfo = ({ repository }: RepoInfoPropType) => {
     }, [])
 
     return (
+        // Wirte repository card on  the screen
         <div className={styles.container}>
             <div className={styles.repoHeader}>
                 <h3 className={styles.repoTitle}>{name}</h3>

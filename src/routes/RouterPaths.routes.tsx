@@ -8,6 +8,7 @@ export const RouterPaths = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Layout />}>
+                    // Outlet of Layout
                     <Route index element={<UserReposPage />} />
                 </Route>
             </Routes>

@@ -1,6 +1,7 @@
 import styles from "./header.module.css";
 import { Icon } from "@iconify/react";
 const Header = () => {
+    // Static header component
     return (
         <header className={styles.container}>
             <Icon icon="simple-icons:github" className={styles.githubicon} />

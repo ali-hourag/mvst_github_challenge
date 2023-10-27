@@ -2,28 +2,39 @@ import React, { useEffect, useState } from "react";
 import styles from "./searchbar.module.css";
 import { useFilterContext } from "../../utils/hooks/useFilterContext";
 
+// Type components propTypes
 type SearchbarPropTypes = {
+    // ["HTML", JavaScript]
     languages: string[]
 }
 
+// Type what will be in options element
 type OptionTypes = {
     value: string,
     label: string
 }
 
+// Type what will be in select element
 type SelectOptionsType = {
     filterType: string,
     selectOptionsArray: OptionTypes[]
 }
 
 const Searchbar = ({ languages }: SearchbarPropTypes) => {
-
+    // Define useState that will be used while renderin component
     const [selectOptions, setSelectOptions] = useState<SelectOptionsType[] | null>(null);
+    // Get setters from FilterContext
     const { changeSearchInputValue, changeLanguageOptionValue,
         changePrivacyOptionValue, changeSortOptionValue,
         searchInputValue } = useFilterContext();
 
 
+    /**
+     * This function studies which select has been changed
+     * and updates context accordingly
+     * @param event event when changing select
+     * @param filterType type of select clicked
+     */
     const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>, filterType: string) => {
         const value = event.target.value;
         if (filterType === "Language") {
@@ -36,12 +47,19 @@ const Searchbar = ({ languages }: SearchbarPropTypes) => {
             changeSortOptionValue(value)
         }
     }
-
+    /**
+     * This function is called when searchbar input is changed
+     * and updates filterContext accordingly
+     * @param event called when changing input
+     */
     const handleSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
         if (value === "") changeSearchInputValue(null)
         else changeSearchInputValue(value)
     }
+
+    // useEffect called when first rendered and sets all information
+    // that will be in the selects by updating useState variable
     useEffect(() => {
         const selectOptionsLanguages: OptionTypes[] = [{
             value: 'all',
@@ -81,17 +99,17 @@ const Searchbar = ({ languages }: SearchbarPropTypes) => {
                 value={searchInputValue ? searchInputValue : ""}
             />
             <div className={styles.filterContainer}>
-                {selectOptions && selectOptions.map((select, index) => (
 
+                {selectOptions && selectOptions.map((select, index) => (
                     <select className={styles.select}
                         key={index}
                         defaultValue={""}
                         name={select.filterType}
                         id={select.filterType}
-                        onChange={(e) => handleSelect(e, select.filterType)}
-                    >
+                        onChange={(e) => handleSelect(e, select.filterType)}>
+                        // Default option
                         <option value="" disabled>{select.filterType}</option>
-
+                        // Define all options
                         {select.selectOptionsArray.map((option, index) => (
                             <option key={index} value={option.value}>{option.label}</option>
                         ))}

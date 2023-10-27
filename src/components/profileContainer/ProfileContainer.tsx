@@ -2,13 +2,17 @@ import { UserDataTypes } from "../../types/userData";
 import styles from "./profileContainer.module.css";
 import { RiUserFollowLine } from "react-icons/ri";
 
+// PropTypes
 type ProfileContainerProps = {
     userInfo: UserDataTypes;
 }
 
 const ProfileContainer = ({ userInfo }: ProfileContainerProps) => {
+    // User data from query
     const { name, login, avatarUrl, followers, following } = userInfo;
+
     return (
+        // print user data
         <div className={styles.container}>
             <div className={styles.imgContainer}>
                 <img src={avatarUrl} className={styles.img} />

@@ -1,5 +1,8 @@
 import { gql } from '@apollo/client';
 
+/**
+ * Query that returns user information
+ */
 const USER_DATA = gql`
     query GetUserData($login_username: String!) {
         user (login: $login_username){
