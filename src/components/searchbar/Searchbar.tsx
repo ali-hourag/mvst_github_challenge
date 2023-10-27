@@ -95,6 +95,7 @@ const Searchbar = ({ languages }: SearchbarPropTypes) => {
         <div className={styles.container}>
             <input className={styles.searchInput}
                 placeholder="Find a repository..."
+                data-testid="searchbar-input"
                 onChange={handleSearchInput}
                 value={searchInputValue ? searchInputValue : ""}
             />
@@ -104,6 +105,7 @@ const Searchbar = ({ languages }: SearchbarPropTypes) => {
                     <select className={styles.select}
                         key={index}
                         defaultValue={""}
+                        data-testid="select-filter"
                         name={select.filterType}
                         id={select.filterType}
                         onChange={(e) => handleSelect(e, select.filterType)}>
