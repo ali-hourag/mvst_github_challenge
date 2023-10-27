@@ -40,7 +40,7 @@ const RepoInfo = ({ repository }: RepoInfoPropType) => {
                     <p className={styles.languageName}>{language.name}</p>
                 </div>}
             {date &&
-                <p>{`Last updated on ${date.getDate()} - ${date.getMonth()} - ${date.getFullYear()}`}</p>}
+                <p>{`Last updated on ${date.getDate()} - ${date.getMonth() + 1} - ${date.getFullYear()}`}</p>}
 
         </div>
     )

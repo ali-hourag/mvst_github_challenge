@@ -25,6 +25,10 @@ const Searchbar = ({ languages }: SearchbarPropTypes) => {
         // console.log(filterType);
     }
 
+    const handleSearchbarInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+    }
+
     useEffect(() => {
         const selectOptionsLanguages: OptionTypes[] = [{
             value: 'all',
@@ -60,6 +64,7 @@ const Searchbar = ({ languages }: SearchbarPropTypes) => {
         <div className={styles.container}>
             <input className={styles.searchInput}
                 placeholder="Find a repository..."
+                onChange={handleSearchbarInput}
             />
             <div className={styles.filterContainer}>
                 {selectOptions && selectOptions.map((select, index) => (
