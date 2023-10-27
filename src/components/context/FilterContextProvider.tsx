@@ -2,13 +2,13 @@ import { createContext, useState } from "react"
 
 interface FilterContextType {
     searchInputValue: string | null,
-    changeSearchInputValue: (newValue: string) => void,
+    changeSearchInputValue: (newValue: string | null) => void,
     languageOptionValue: string | null,
-    changeLanguageOptionValue: (newValue: string) => void,
+    changeLanguageOptionValue: (newValue: string | null) => void,
     privacyOptionValue: string | null,
-    changePrivacyOptionValue: (newValue: string) => void,
+    changePrivacyOptionValue: (newValue: string | null) => void,
     sortOptionValue: string | null,
-    changeSortOptionValue: (newValue: string) => void
+    changeSortOptionValue: (newValue: string | null) => void
 }
 
 export const filterContext = createContext<FilterContextType>({
@@ -28,16 +28,16 @@ export const FilterContextProvider = ({ ...props }) => {
     const [privacyOptionValue, setPrivacyOptionValue] = useState<string | null>(null);
     const [sortOptionValue, setSortOptionValue] = useState<string | null>(null);
 
-    const changeSearchInputValue = (newValue: string) => {
+    const changeSearchInputValue = (newValue: string | null) => {
         setSearchInputValue(newValue)
     }
-    const changeLanguageOptionValue = (newValue: string) => {
+    const changeLanguageOptionValue = (newValue: string | null) => {
         setLanguageOptionValue(newValue)
     }
-    const changePrivacyOptionValue = (newValue: string) => {
+    const changePrivacyOptionValue = (newValue: string | null) => {
         setPrivacyOptionValue(newValue)
     }
-    const changeSortOptionValue = (newValue: string) => {
+    const changeSortOptionValue = (newValue: string | null) => {
         setSortOptionValue(newValue)
     }
 

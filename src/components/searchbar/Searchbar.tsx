@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./searchbar.module.css";
+import { useFilterContext } from "../../utils/hooks/useFilterContext";
 
 type SearchbarPropTypes = {
     languages: string[]
@@ -18,17 +19,29 @@ type SelectOptionsType = {
 const Searchbar = ({ languages }: SearchbarPropTypes) => {
 
     const [selectOptions, setSelectOptions] = useState<SelectOptionsType[] | null>(null);
+    const { changeSearchInputValue, changeLanguageOptionValue,
+        changePrivacyOptionValue, changeSortOptionValue,
+        searchInputValue } = useFilterContext();
 
 
     const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>, filterType: string) => {
-        // console.log(event.target.value);
-        // console.log(filterType);
+        const value = event.target.value;
+        if (filterType === "Language") {
+            if (value === "all") changeLanguageOptionValue(null)
+            else changeLanguageOptionValue(value)
+        } else if (filterType === "Privacy") {
+            if (value === "all") changePrivacyOptionValue(null)
+            else changePrivacyOptionValue(value)
+        } else {
+            changeSortOptionValue(value)
+        }
     }
 
-    const handleSearchbarInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-
+    const handleSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        if (value === "") changeSearchInputValue(null)
+        else changeSearchInputValue(value)
     }
-
     useEffect(() => {
         const selectOptionsLanguages: OptionTypes[] = [{
             value: 'all',
@@ -49,7 +62,7 @@ const Searchbar = ({ languages }: SearchbarPropTypes) => {
         ]
 
         const selectOptionsSort: OptionTypes[] = [
-            { value: 'last', label: 'Last Updated' },
+            { value: 'lastUpdated', label: 'Last Updated' },
             { value: 'name', label: 'Name' }
         ]
 
@@ -64,7 +77,8 @@ const Searchbar = ({ languages }: SearchbarPropTypes) => {
         <div className={styles.container}>
             <input className={styles.searchInput}
                 placeholder="Find a repository..."
-                onChange={handleSearchbarInput}
+                onChange={handleSearchInput}
+                value={searchInputValue ? searchInputValue : ""}
             />
             <div className={styles.filterContainer}>
                 {selectOptions && selectOptions.map((select, index) => (

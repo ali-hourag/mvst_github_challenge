@@ -6,6 +6,7 @@ import { UserDataTypes } from '../../types/userData.d';
 import ClipLoader from "react-spinners/ClipLoader";
 import ProfileContainer from '../../components/profileContainer/ProfileContainer';
 import ReposContainer from '../../components/reposContainer/ReposContainer';
+import { FilterContextProvider } from '../../components/context/FilterContextProvider';
 
 
 
@@ -42,7 +43,9 @@ const UserReposPage = () => {
                         <ProfileContainer userInfo={userData} />
                     </section>
                     <section className={styles.reposInfoContainer}>
-                        <ReposContainer username={username} numberOfRepos={userData.repositories.totalCount} />
+                        <FilterContextProvider>
+                            <ReposContainer username={username} numberOfRepos={userData.repositories.totalCount} />
+                        </FilterContextProvider>
                     </section>
                 </>
             }
