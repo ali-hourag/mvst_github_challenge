@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+    border-bottom: 2px solid rgb(192, 192, 192, .4);
+}
+
+.repoHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+.repoTitle {
+    color: #1E90FF;
+}
+
+.privacyText {
+    font-size: .9rem;
+    border: 1px solid rgb(192, 192, 192, .8);
+    padding: 3px 12px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.languageContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+    gap: 2px;
+    text-align: center;
+}
+
+.languageColor {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+@media only screen and (max-width: 1050px) {
+    .container {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .description {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .container {
+        justify-content: center;
+        align-items: center;
+    }
+}

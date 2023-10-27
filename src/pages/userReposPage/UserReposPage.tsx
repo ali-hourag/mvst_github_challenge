@@ -7,7 +7,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import ProfileContainer from '../../components/profileContainer/ProfileContainer';
 import ReposContainer from '../../components/reposContainer/ReposContainer';
 
-export const username: string = "ali-hourag";
+
 
 const UserReposPage = () => {
     // Use useLazyQuery so that query is called when I indicate to.
@@ -16,7 +16,7 @@ const UserReposPage = () => {
     // easily escalated.
     const [getUserData, result] = useLazyQuery(USER_DATA);
     const [userData, setUserData] = useState<UserDataTypes | null>(null);
-
+    const username = "ali-hourag"
 
     useEffect(() => {
         getUserData({
@@ -42,7 +42,7 @@ const UserReposPage = () => {
                         <ProfileContainer userInfo={userData} />
                     </section>
                     <section className={styles.reposInfoContainer}>
-                        <ReposContainer numberOfRepos={userData.repositories.totalCount} />
+                        <ReposContainer username={username} numberOfRepos={userData.repositories.totalCount} />
                     </section>
                 </>
             }

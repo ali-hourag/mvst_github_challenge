@@ -15,44 +15,44 @@ type SelectOptionsType = {
     selectOptionsArray: OptionTypes[]
 }
 
-
-
 const Searchbar = ({ languages }: SearchbarPropTypes) => {
 
     const [selectOptions, setSelectOptions] = useState<SelectOptionsType[] | null>(null);
 
 
     const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>, filterType: string) => {
-        console.log(event.target.value);
-        console.log(filterType);
+        // console.log(event.target.value);
+        // console.log(filterType);
     }
 
     useEffect(() => {
-        const selectOptionsLanguage: OptionTypes[] = [{
+        const selectOptionsLanguages: OptionTypes[] = [{
             value: 'all',
             label: 'All'
         }];
+
         languages.forEach((language) => {
-            selectOptionsLanguage.push({
+            selectOptionsLanguages.push({
                 value: language,
                 label: language
             })
         })
-        const selectOptionsType = [
+
+        const selectOptionsPrivacy: OptionTypes[] = [
             { value: 'all', label: 'All' },
             { value: 'public', label: 'Public' },
             { value: 'private', label: 'Private' }
         ]
 
-        const selectOptionsSort = [
+        const selectOptionsSort: OptionTypes[] = [
             { value: 'last', label: 'Last Updated' },
             { value: 'name', label: 'Name' }
         ]
 
         setSelectOptions([
-            { filterType: "language", selectOptionsArray: selectOptionsLanguage },
-            { filterType: "privacy", selectOptionsArray: selectOptionsType },
-            { filterType: "sort", selectOptionsArray: selectOptionsSort }
+            { filterType: "Language", selectOptionsArray: selectOptionsLanguages },
+            { filterType: "Privacy", selectOptionsArray: selectOptionsPrivacy },
+            { filterType: "Sort", selectOptionsArray: selectOptionsSort }
         ]);
     }, [])
 

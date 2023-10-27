@@ -3,15 +3,15 @@ import ReposList from "../reposList/ReposList";
 import Searchbar from "../searchbar/Searchbar";
 import styles from "./reposContainer.module.css";
 import { UserDataReposTypes } from "../../types/userReposData";
-import { username } from "../../pages/userReposPage/UserReposPage";
 import { useLazyQuery } from "@apollo/client";
 import USER_REPOS_DATA from "../../graphql/queries/repos.queries";
 
 type ReposContainerPropTypes = {
-    numberOfRepos: number
+    numberOfRepos: number,
+    username: string
 }
 
-const ReposContainer = ({ numberOfRepos }: ReposContainerPropTypes) => {
+const ReposContainer = ({ numberOfRepos, username }: ReposContainerPropTypes) => {
     const [getUserReposData, result] = useLazyQuery(USER_REPOS_DATA);
     const [userReposData, setUserReposData] = useState<UserDataReposTypes[] | null>(null);
     const [languages, setLanguages] = useState<string[] | null>(null);
@@ -44,7 +44,7 @@ const ReposContainer = ({ numberOfRepos }: ReposContainerPropTypes) => {
     return (
         <div className={styles.container}>
             {languages && <Searchbar languages={languages} />}
-            {userReposData && <ReposList userReposData={userReposData} />}
+            {userReposData && <ReposList username={username} userReposData={userReposData} />}
         </div>
     )
 }
