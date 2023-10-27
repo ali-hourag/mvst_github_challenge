@@ -129,10 +129,10 @@
     }
 }
 
-@media only screen and (max-width: 385px) {
+@media only screen and (max-width: 395px) {
 
     .imgContainer {
-        width: 10rem;
+        width: 9rem;
         padding: 5%;
     }
 }
