@@ -1,5 +1,6 @@
 import { createContext, useState } from "react"
 
+// Add FilterContextTypes
 interface FilterContextType {
     searchInputValue: string | null,
     changeSearchInputValue: (newValue: string | null) => void,
@@ -11,6 +12,7 @@ interface FilterContextType {
     changeSortOptionValue: (newValue: string | null) => void
 }
 
+// Create context
 export const filterContext = createContext<FilterContextType>({
     searchInputValue: null,
     changeSearchInputValue: () => { },
@@ -22,7 +24,9 @@ export const filterContext = createContext<FilterContextType>({
     changeSortOptionValue: () => { }
 })
 
+// Define FilterContextProvider
 export const FilterContextProvider = ({ ...props }) => {
+    // Define states for each filters
     const [searchInputValue, setSearchInputValue] = useState<string | null>(null);
     const [languageOptionValue, setLanguageOptionValue] = useState<string | null>(null);
     const [privacyOptionValue, setPrivacyOptionValue] = useState<string | null>(null);

@@ -12,7 +12,7 @@ const ProfileContainer = ({ userInfo }: ProfileContainerProps) => {
     const { name, login, avatarUrl, followers, following } = userInfo;
 
     return (
-        // print user data
+        //  print user data
         <div className={styles.container}>
             <div className={styles.imgContainer}>
                 <img src={avatarUrl} className={styles.img} />

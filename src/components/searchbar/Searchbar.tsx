@@ -107,9 +107,9 @@ const Searchbar = ({ languages }: SearchbarPropTypes) => {
                         name={select.filterType}
                         id={select.filterType}
                         onChange={(e) => handleSelect(e, select.filterType)}>
-                        // Default option
+                        {/* // Default option */}
                         <option value="" disabled>{select.filterType}</option>
-                        // Define all options
+                        {/* // Define all options */}
                         {select.selectOptionsArray.map((option, index) => (
                             <option key={index} value={option.value}>{option.label}</option>
                         ))}

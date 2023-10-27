@@ -38,8 +38,8 @@ const UserReposPage = () => {
 
     return (
         <main className={styles.container}>
-            // Show loader if data is not yet available
-            // Otherwise, show children nodes
+            {/* // Show loader if data is not yet available
+            // Otherwise, show children nodes */}
             {!userData ?
                 <ClipLoader />
                 :
