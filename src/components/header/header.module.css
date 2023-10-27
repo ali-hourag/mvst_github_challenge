@@ -6,9 +6,10 @@
     padding-top: 10px;
     width: 100vw;
     height: 10dvh;
-    background-color: #F5F5DC;
+    background-color: rgb(182, 186, 177, .3);
     border-bottom: 2px solid rgb(192, 192, 192, .4);
 }
+
 
 .githubicon {
     height: 2rem;
